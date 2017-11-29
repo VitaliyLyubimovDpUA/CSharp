@@ -11,8 +11,14 @@ namespace FactoryMethodDemo
     {
         static void Main(string[] args)
         {
-            ILogging consLog = new ConsoleLogging(new ConsoleMessage());
-            consLog.Verbose();
+            //ILogging logging = new ConsoleLogging();
+            //ConsoleMessage consoleMessage = (ConsoleMessage)logging.Warning("Hello");
+
+            //ILogging fileLogging = new FileLogging("log.txt");
+            //FileMessage fMsg =  (FileMessage)fileLogging.Verbose("New message");
+
+
+            Console.ReadLine();
         }
     }
 }

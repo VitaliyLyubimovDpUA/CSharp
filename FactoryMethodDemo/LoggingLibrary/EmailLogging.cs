@@ -1,18 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
-using System.Configuration;
-using System.Runtime.CompilerServices;
-using System.IO;
 
 namespace LoggingLibrary
 {
-    public class ConsoleLogging : ILogging
+    public class EmailLogging : ILogging
     {
         private string template = "";
-        public ConsoleLogging()
+        public EmailLogging()
         {
             template = ConfigurationManager.AppSettings["writeTemplate"];
         }
@@ -29,7 +28,7 @@ namespace LoggingLibrary
             {
                 Console.WriteLine(text);
             }
-            return new ConsoleMessage
+            return new EmailMessage
             {
                 Level = lvl,
                 Message = msg,
@@ -37,20 +36,29 @@ namespace LoggingLibrary
                 SourceLineNumber = sourceLineNumber
             };
         }
-
-        public IMessage Verbose(string msg, [CallerFilePath] string sourceFilePath = "", [CallerLineNumber] int sourceLineNumber = 0)
-        => SendMessage(msg, LevelMsg.Verbose, sourceFilePath, sourceLineNumber);
-
-        public IMessage Info(string msg, [CallerFilePath] string sourceFilePath = "", [CallerLineNumber] int sourceLineNumber = 0)
-        => SendMessage(msg, LevelMsg.Info, sourceFilePath, sourceLineNumber);
-
-        public IMessage Warning(string msg, [CallerFilePath] string sourceFilePath = "", [CallerLineNumber] int sourceLineNumber = 0)
-        => SendMessage(msg, LevelMsg.Warning, sourceFilePath, sourceLineNumber);
-
         public IMessage Debug(string msg, [CallerFilePath] string sourceFilePath = "", [CallerLineNumber] int sourceLineNumber = 0)
-        => SendMessage(msg, LevelMsg.Debug, sourceFilePath, sourceLineNumber);
+        {
+            throw new NotImplementedException();
+        }
 
         public IMessage Error(string msg, [CallerFilePath] string sourceFilePath = "", [CallerLineNumber] int sourceLineNumber = 0)
-        => SendMessage(msg, LevelMsg.Error, sourceFilePath, sourceLineNumber);
+        {
+            throw new NotImplementedException();
+        }
+
+        public IMessage Info(string msg, [CallerFilePath] string sourceFilePath = "", [CallerLineNumber] int sourceLineNumber = 0)
+        {
+            throw new NotImplementedException();
+        }
+
+        public IMessage Verbose(string msg, [CallerFilePath] string sourceFilePath = "", [CallerLineNumber] int sourceLineNumber = 0)
+        {
+            throw new NotImplementedException();
+        }
+
+        public IMessage Warning(string msg, [CallerFilePath] string sourceFilePath = "", [CallerLineNumber] int sourceLineNumber = 0)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

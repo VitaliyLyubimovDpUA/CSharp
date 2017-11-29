@@ -43,6 +43,10 @@
   <ItemGroup>
     <Compile Include="ConsoleLogging.cs" />
     <Compile Include="ConsoleMessage.cs" />
+    <Compile Include="EmailLogging.cs" />
+    <Compile Include="EmailMessage.cs" />
+    <Compile Include="FileLogging.cs" />
+    <Compile Include="FileMessage.cs" />
     <Compile Include="ILogging.cs" />
     <Compile Include="IMessage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
