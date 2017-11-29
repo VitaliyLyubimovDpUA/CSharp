@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using LoggingLibrary;
 
 namespace FactoryMethodDemo
 {
@@ -10,6 +11,8 @@ namespace FactoryMethodDemo
     {
         static void Main(string[] args)
         {
+            ILogging consLog = new ConsoleLogging(new ConsoleMessage());
+            consLog.Verbose();
         }
     }
 }
