@@ -41,14 +41,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ConsoleCreator.cs" />
     <Compile Include="ConsoleLogging.cs" />
-    <Compile Include="ConsoleMessage.cs" />
     <Compile Include="EmailLogging.cs" />
-    <Compile Include="EmailMessage.cs" />
     <Compile Include="FileLogging.cs" />
-    <Compile Include="FileMessage.cs" />
+    <Compile Include="ICreator.cs" />
     <Compile Include="ILogging.cs" />
-    <Compile Include="IMessage.cs" />
+    <Compile Include="Logging.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
