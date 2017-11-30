@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using LoggingLibrary;
 using System.Net.Mail;
+using LoggingLibrary.FileLogging;
+using LoggingLibrary.EmailLogging;
 
 namespace FactoryMethodDemo
 {
@@ -12,17 +14,17 @@ namespace FactoryMethodDemo
     {
         static void Main(string[] args)
         {
-            ICreator creator = new ConsoleCreator();
-            ILogging log = creator.Create();
-            log.Verbose("Hello");
+            //Logging.SetCreator(new ConsoleCreator());
+            //ILogging log = Logging.GetInstance();
+            //log.Verbose("Hello");
 
-            //ILogging fileLogging = new FileLogging("log.txt");
-            //FileMessage fMsg =  (FileMessage)fileLogging.Verbose("New message");
+            //Logging.SetCreator(new FileCreator());
+            //ILogging log = Logging.GetInstance();
+            //log.Verbose("Good evening");
 
-            //MailAddress from = new MailAddress("vitaha.lyubimov@gmail.com", "Виталий Любимов");
-            //MailAddress to = new MailAddress("lubimov@itstep.org");
-            //ILogging emailLogging = new EmailLogging(from, to, "Тема сообщения", "k8r8zybnmxae");
-            //EmailMessage emailMessage = (EmailMessage)emailLogging.Verbose("Текст сообщения");
+            Logging.SetCreator(new EmailCreator());
+            ILogging log = Logging.GetInstance();
+            log.Verbose("Good evening");
 
             Console.ReadLine();
         }
